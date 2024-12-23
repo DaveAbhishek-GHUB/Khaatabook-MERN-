@@ -1,0 +1,69 @@
+<!-- Document Type Declaration -->
+<!DOCTYPE html>
+<!-- Root HTML element -->
+<html lang="en">
+<!-- Head section containing metadata -->
+<head>
+  <!-- Character encoding declaration -->
+  <meta charset="UTF-8" />
+
+  <!-- Viewport settings for responsive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="stylesheets/viewHisaab.css">
+
+  <!-- Page title -->
+  <title>Hisaab</title>
+</head>
+
+<!-- Body section containing visible content -->
+
+<body>
+  <!-- Main wrapper for the entire page -->
+  <div class="mainWrapper">
+    <!-- Include header partial view -->
+    <%- include('header') %>
+
+      <!-- Upper section of the page -->
+      <div class="upperSection">
+        <!-- Operation button wrapper -->
+        <div class="operationButtonWrapper">
+          <!-- Text indicating if content is encrypted -->
+          <span>Encrypted</span>
+
+          <!-- SVG wrapper for sharing icon -->
+          <div class="isShareableSVGWrapper">
+            <img src="svgs/isSharable.svg" alt="..." />
+          </div>
+
+          <!-- Delete button -->
+          <button class="deleteButton">Delete</button>
+
+          <!-- Edit button -->
+          <button class="editButton">Edit</button>
+        </div>
+
+        <!-- Date wrapper -->
+        <div class="dateWrapper">
+          <!-- Displayed date -->
+          <span>23-12-2024</span>
+        </div>
+      </div>
+
+      <!-- Hisaab content wrapper -->
+      <div class="hisaabWrapper">
+        <!-- Title wrapper -->
+        <div class="titleWrapper">
+          <!-- Displayed title -->
+          <span>This is the Title</span>
+        </div>
+
+        <!-- Content wrapper -->
+        <div class="contentWrapper">This is content wrapper</span>
+        </div>
+      </div>
+  </div>
+</body>
+
+</html>

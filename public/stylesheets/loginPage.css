@@ -1,0 +1,67 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Set full height and width for html and body */
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* Main wrapper for the entire page */
+  .mainWrapper{
+      width: 100vw;
+      min-height: 100vh;
+      overflow-y: hidden;
+  }
+  
+  /* Form wrapper */
+  .formWrapper{
+      width: 100%;
+      height: 100%;
+      margin-top: 10vw;
+      display: flex;
+      justify-content: center;
+  }
+  
+  /* Form inside formWrapper */
+  .formWrapper form{
+      display: flex;
+      flex-direction: column;
+      gap: 1vw;
+  }
+  
+  /* Input fields inside form */
+  .formWrapper form input{
+      width: 20vw;
+      padding: 1vw;
+      background-color: #F6F6F6;
+      border: none;
+      font-size: 1vw;
+  }
+  
+  /* Labels for inputs */
+  .formWrapper form label{
+      font-size: 2vw;
+      font-family: sans-serif;
+  }
+  
+  /* Submit button */
+  .formWrapper form button{
+      width: 20vw;
+      background-color: #0285FE;
+      color: white;
+      border: none;
+      padding: 1vw;
+  }
+  
+  /* Media queries */
+  
+  /* For screens wider than 768px (desktop) */
+  @media only screen and (min-width: 768px) {}
+  
+  /* For screens wider than 600px (tablets) */
+  @media only screen and (min-width: 600px) {}  

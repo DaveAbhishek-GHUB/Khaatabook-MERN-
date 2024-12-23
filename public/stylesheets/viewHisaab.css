@@ -1,0 +1,140 @@
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set full height and width for html and body */
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+/* Main wrapper for the entire page */
+.mainWrapper {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+/* Upper section of the page */
+.upperSection {
+  padding: 2vw;
+}
+
+/* Wrapper for operation buttons */
+.operationButtonWrapper {
+  display: flex;
+  gap: 2vw;
+}
+
+/* Style for the 'Encrypted' span */
+.operationButtonWrapper span {
+  background-color: #0d85fd;
+  color: white;
+  padding: 0.8vw 3vw;
+  border-radius: 0.5vw;
+}
+
+/* Style for the SVG wrapper */
+.isShareableSVGWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styles for delete button */
+.operationButtonWrapper .deleteButton {
+  background-color: #cf3035;
+  padding: 0.8vw 3vw;
+  color: white;
+  border: none;
+  border-radius: 0.5vw;
+}
+
+/* Styles for edit button */
+.operationButtonWrapper .editButton {
+  background-color: #ffc975;
+  padding: 0.8vw 3vw;
+  color: black;
+  border: none;
+  border-radius: 0.5vw;
+}
+
+/* Padding for date wrapper */
+.dateWrapper {
+  padding: 0.5vw;
+}
+
+/* Wrapper for hisaab content */
+.hisaabWrapper {
+  padding: 2vw;
+}
+
+/* Styles for title wrapper */
+.titleWrapper {
+  font-size: 3vw;
+}
+
+/* Styles for content wrapper */
+.contentWrapper {
+  font-size: 1.5vw;
+  height: 20vw;
+  padding: 1vw;
+  overflow-y: scroll;
+}
+
+/* Responsive styles for tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  /* Tablet styles */
+  .operationButtonWrapper span,
+  .operationButtonWrapper .deleteButton,
+  .operationButtonWrapper .editButton {
+    padding: 1.2em 2em;
+    font-size: 1em;
+  }
+
+  .titleWrapper {
+    font-size: 2em;
+  }
+
+  .contentWrapper {
+    font-size: 1em;
+    height: 15em;
+  }
+}
+
+/* Responsive styles for mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Mobile styles */
+  .operationButtonWrapper {
+    gap: 1em;
+    align-items: center;
+  }
+
+  .operationButtonWrapper span,
+  .operationButtonWrapper .deleteButton,
+  .operationButtonWrapper .editButton {
+    padding: 0.8em 1.5em;
+    font-size: 0.9em;
+    border-radius: 0.3em;
+  }
+
+  .titleWrapper {
+    font-size: 1.5em;
+  }
+
+  .contentWrapper {
+    font-size: 0.8em;
+    height: 10em;
+  }
+
+  .upperSection {
+    padding: 1em;
+  }
+
+  .hisaabWrapper {
+    padding: 1em;
+  }
+}

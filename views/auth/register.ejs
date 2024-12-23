@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/loginPage.css">
+    <title>Register</title>
+</head>
+
+<body>
+    <div class="mainWrapper">
+        <div class="formWrapper">
+            <form action="/user/register" method="post">
+                <label>Register your profile:</label>
+                <input type="text" placeholder="Username" name="username" id="Username">
+                <input type="email" placeholder="Email" name="email" id="Email">
+                <input type="password" placeholder="Password" name="password" id="Password">
+                <input type="number" min="18" max="120" step="1" placeholder="Age" name="age" id="Age">
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

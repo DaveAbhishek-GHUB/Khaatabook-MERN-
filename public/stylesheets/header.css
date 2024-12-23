@@ -1,0 +1,103 @@
+/* Global Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header {
+    /* Header container styles */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .headerLogo {
+    /* Logo text styles */
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Header Links Styles */
+  
+  .headerLinks {
+    /* Container for header links */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .nav-link {
+    /* Individual link styles */
+    text-decoration: none;
+    color: #000;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    /* Hover effect for navigation links */
+    color: #0066cc;
+  }
+  
+  /* Theme Toggle Buttons */
+  
+  .theme-toggle {
+    /* Base styles for theme toggle buttons */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 12px;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .theme-toggle svg {
+    /* SVG icon styles */
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+  
+  .theme-toggle span {
+    /* Text label for theme toggle */
+    margin-left: 5px;
+  }
+  
+  .theme-toggle[aria-label^="Toggle dark"] {
+    /* Styles for dark theme toggle */
+    background-color: blue;
+  }
+  
+  .theme-toggle[aria-label^="Toggle light"] {
+    /* Styles for light theme toggle */
+    background-color: orange;
+  }
+  
+  .hamburger {
+    /* Hamburger menu button (hidden by default) */
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .headerLinks {
+      /* Hide header links on small screens */
+      display: none;
+    }
+    .hamburger {
+      /* Show hamburger menu button on small screens */
+      display: block;
+    }
+    .hamburger button {
+      /* Styles for hamburger button */
+      background-color: transparent;
+      border: none;
+    }
+  }
