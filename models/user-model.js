@@ -45,7 +45,7 @@ const userSchema = new mongoose.Schema({
         min: [0, "Age must be greater than 0"],
         max: [120, "Age cannot exceed 120 years"],
     },
-    
+
     hisaabs: [
         {
             type: mongoose.Schema.Types.ObjectId,

@@ -53,7 +53,6 @@ const validateHisaab = (data) => {
     return error;
 };
 
-
 let hisaabModel = mongoose.model('hisaab', hisaabSchema);
 
 module.exports = { hisaabModel, validateHisaab };

@@ -62,20 +62,23 @@ app.get("/create", (req, res) => {
   res.render("createhisaab");
 });
 
-app.get("/hisaab/:hisaabid", async(req, res) => {
+app.get("/hisaab/:hisaabid", async (req, res) => {
+  const hisaabId = req.params.hisaabid;
+
   try {
-    // Add await here
-    let hisaab = await hisaabModel.findById(req.params.hisaabid);
-    
+    const hisaab = await hisaabModel.findById(hisaabId);
+
     if (!hisaab) {
       return res.status(404).send("Hisaab not found");
     }
 
-    console.log(hisaab);
-    
-    // Render the hisaab view with the data
+    // Check if the hisaab is encrypted and if the user has provided the correct password
+    if (hisaab.isEncrypt && !req.session[`access_${hisaabId}`]) {
+      return res.redirect(`/hisaab/${hisaabId}/password`);
+    }
+
+    // Render the hisaab view
     res.render("viewHisaab", { hisaab });
-    
   } catch (error) {
     console.error("Error fetching hisaab:", error);
     res.status(500).send("Error fetching hisaab");
@@ -92,7 +95,6 @@ app.post("/user/register", async (req, res) => {
   if (error) {
     return res.status(400).send(error.details[0].message);
   }
-
   try {
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -113,6 +115,57 @@ app.post("/user/register", async (req, res) => {
     res.status(500).send("Error creating user");
   }
 });
+
+app.post("/hisaab/:hisaabid/verify-password", async (req, res) => {
+  const { password } = req.body;
+  const hisaabId = req.params.hisaabid;
+
+  try {
+    // Fetch the hisaab
+    const hisaab = await hisaabModel.findById(hisaabId);
+
+    if (!hisaab) {
+      return res.status(404).send("Hisaab not found");
+    }
+
+    // Check if the password matches
+    if (hisaab.passcode && hisaab.passcode === parseInt(password)) {
+      // Store a flag in the session to allow access
+      req.session[`access_${hisaabId}`] = true;
+
+      // Redirect to the hisaab view
+      return res.redirect(`/hisaab/${hisaabId}`);
+    }
+
+    // Render the password prompt page with an error message
+    res.render("passwordPrompt", {
+      error: "Incorrect password. Please try again.",
+      hisaabId
+    });
+  } catch (error) {
+    console.error("Error verifying password:", error);
+    res.status(500).send("Error verifying password");
+  }
+});
+
+app.get("/hisaab/:hisaabid/password", async (req, res) => {
+  const hisaabId = req.params.hisaabid;
+
+  try {
+    const hisaab = await hisaabModel.findById(hisaabId);
+
+    if (!hisaab) {
+      return res.status(404).send("Hisaab not found");
+    }
+
+    // Render the password prompt page
+    res.render("passwordPrompt", { hisaabId, error: null });
+  } catch (error) {
+    console.error("Error fetching hisaab for password:", error);
+    res.status(500).send("Error loading password page");
+  }
+});
+
 
 // POST route handler for user login
 app.post("/user/login", async (req, res) => {

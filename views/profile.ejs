@@ -7,40 +7,9 @@
     <title>Profile</title>
   </head>
   <body>
-    <div class="header">
-      <!-- Header container -->
-
-      <div class="headerLogo">
-        <!-- Logo section -->
-        <span>Khaatabook</span>
-      </div>
-
-      <div class="headerLinks">
-        <!-- Navigation links and theme toggle buttons -->
-
-        <a href="#" class="nav-link">Home</a>
-        <a href="#" class="nav-link">Create New Hisaab</a>
-
-        <button class="theme-toggle" aria-label="Toggle dark mode">
-          <!-- Dark mode toggle button -->
-          <img src="svgs/moon.svg" alt="Dark mode icon" />
-        </button>
-
-        <button class="theme-toggle" aria-label="Toggle light mode">
-          <!-- Light mode toggle button -->
-          <img src="svgs/sun.svg" alt="Light mode icon" />
-        </button>
-      </div>
-
-      <div class="hamburger">
-        <!-- Hamburger menu button -->
-        <button>
-          <img src="svgs/hamburger.svg" alt="Hamburger menu icon" />
-        </button>
-      </div>
-    </div>
     <!-- Main container for the entire section -->
     <div class="mainBodyPartContainer">
+      <%- include('header') %>
       <!-- Wrapper div for the content inside -->
       <div class="hisaabWrapper">
         <% if(hisaabs && hisaabs.length > 0){ %> <% hisaabs.forEach(hisaab => {

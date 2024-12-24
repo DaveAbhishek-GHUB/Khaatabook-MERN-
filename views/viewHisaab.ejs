@@ -1,4 +1,3 @@
-<!-- Document Type Declaration -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +7,7 @@
     <title>Hisaab</title>
   </head>
 
-  <body>
+  <body onload="getPassword()">
     <div class="mainWrapper">
       <!-- Include header partial -->
       <%- include('header') %>
@@ -16,13 +15,11 @@
       <div class="upperSection">
         <div class="operationButtonWrapper">
           <% if(hisaab.isEncrypt === true) { %>
-            <span>Encrypted</span>
-          <% } %>
-          
-          <% if(hisaab.isEncrypt === true) { %>
-            <div class="isShareableSVGWrapper">
-              <img src="/svgs/isSharable.svg" alt="..." />
-            </div>
+          <span>Encrypted</span>
+          <% } %> <% if(hisaab.isSharable === true) { %>
+          <div class="isShareableSVGWrapper">
+            <img src="/svgs/isSharable.svg" alt="..." />
+          </div>
           <% } %>
 
           <!-- Delete button -->
@@ -39,7 +36,7 @@
         </div>
 
         <div class="dateWrapper">
-          <span><%= hisaab.data.toLocaleDateString() %></span>
+          <span>Created Date: <%= hisaab.data.toLocaleDateString() %></span>
         </div>
       </div>
 
@@ -47,7 +44,6 @@
         <div class="titleWrapper">
           <span><%= hisaab.name %></span>
         </div>
-
         <div class="contentWrapper">
           <!-- Textarea will be shown only when in edit mode -->
           <form
@@ -57,7 +53,7 @@
             style="display: none"
           >
             <textarea name="content" id="contentTextarea">
-            <%= hisaab.content %></textarea
+<%= hisaab.content.trim() %></textarea
             >
             <button type="submit" class="saveButton">Save</button>
           </form>

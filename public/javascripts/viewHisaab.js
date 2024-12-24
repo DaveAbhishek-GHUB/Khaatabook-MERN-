@@ -1,4 +1,4 @@
-    // Function to toggle between view and edit mode
+// Function to toggle between view and edit mode
     function toggleEditMode() {
         const editForm = document.getElementById('editForm');
         const viewContent = document.getElementById('viewContent');
