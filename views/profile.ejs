@@ -43,38 +43,48 @@
     <div class="mainBodyPartContainer">
       <!-- Wrapper div for the content inside -->
       <div class="hisaabWrapper">
-        <!-- Main content div -->
+        <% if(hisaabs && hisaabs.length > 0){ %> <% hisaabs.forEach(hisaab => {
+        %>
         <div class="hisaab">
           <!-- Container for buttons and date information -->
           <div class="buttonsAndDateWrapper">
             <!-- Container for encryption/sharing button -->
             <div class="buttonWrapper">
-              <!-- Text indicating if content is encrypted -->
+              <% if(hisaab.isEncrypt) { %>
               <span class="encrptedOrNot"> Encrypted </span>
-
+              <% } else { %>
+              <span class="isAvailableOrNot"> Available </span>
+              <% } %>
               <!-- Sharing icon -->
+              <% if (hisaab.isSharable) { %>
               <span class="isSharable">
                 <img src="svgs/isSharable.svg" alt="" />
               </span>
+              <% } %>
             </div>
 
             <!-- Date information container -->
             <span class="createdDate">
               <span>Date:</span>
-              <p>21-12-2024</p>
+              <p><%= new Date(hisaab.data).toLocaleDateString() %></p>
             </span>
           </div>
 
           <!-- Content description -->
           <div class="hisaabContentWrapper">
-            <span>Household Fees, This month</span>
+            <span><%= hisaab.name %></span>
           </div>
 
           <!-- Navigation link -->
           <div class="hasaabNavigator">
-            <a href="#">view hisaab</a>
+            <a href="/hisaab/<%= hisaab._id %>">view hisaab</a>
           </div>
         </div>
+        <% }) %> <% } else { %>
+        <div class="no-hisaabs">
+          <p>No hisaabs found. Create your first hisaab!</p>
+        </div>
+        <% } %>
       </div>
     </div>
   </body>

@@ -1,106 +1,84 @@
-<!-- Document Type Declaration -->
 <!DOCTYPE html>
-<!-- Root HTML element -->
 <html lang="en">
-  <!-- Head section containing metadata -->
-  <head>
-    <!-- Character encoding declaration -->
-    <meta charset="UTF-8" />
-    
-    <!-- Viewport settings for responsive design -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Page title -->
-    <title>File Processing Form</title>
-    
-    <!-- Link to external stylesheet -->
-    <link rel="stylesheet" href="stylesheets/createPage.css" />
-  </head>
-  
-  <!-- Body section containing visible content -->
-  <body>
-    <!-- Main wrapper for the form -->
-    <div class="formWrapper">
-      <!-- File processing form -->
-      <form class="fileProcessingForm" method="POST" action="/submit">
-        <!-- Form heading -->
-        <span class="formHeading">Create new hisaab</span>
-        
-        <!-- File name input field -->
-        <div class="form-group">
-          <input 
-            placeholder="Shopping Hisaab, Ghar ka Kharch..." 
-            type="text" 
-            class="fileName" 
-            name="fileName"
-            required
-            minlength="3"
-            maxlength="50" 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Processing Form</title>
+  <link rel="stylesheet" href="stylesheets/createPage.css" />
+</head>
+<body>
+  <div class="formWrapper">
+    <form class="fileProcessingForm" method="POST" action="/create/hisaab">
+      <span class="formHeading">Create new hisaab</span>
+      <div class="form-group">
+        <input 
+          placeholder="Shopping Hisaab, Ghar ka Kharch..." 
+          type="text" 
+          class="fileName" 
+          name="fileName"
+          required
+          minlength="3"
+          maxlength="50" 
+        />
+      </div>
+      <div class="form-group">
+        <textarea
+          placeholder="Snacks, Beverages, Oats..."
+          class="fileDescription"
+          name="fileDescription"
+          rows="4"
+          cols="50"
+          required
+          minlength="10"
+          maxlength="200"
+        ></textarea>
+      </div>
+      <div class="encryptAndSharaeble">
+        <div>
+          <input
+            type="checkbox"
+            id="encrypt"
+            name="encrypt"
+            value="encrypt"
+          />
+          <label for="encrypt">Encrypt this file?</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="shareable"
+            name="shareable"
+            value="shareable"
+          />
+          <label for="shareable">Shareable file?</label>
+        </div>
+      </div>
+      <div class="passwordAndEditPermission">
+        <div>
+          <input
+            placeholder="4-digit Passcode"
+            type="password"
+            id="password"
+            name="password"
+            pattern="\d{4}"
+            title="Passcode must be exactly 4 digits"
+            disabled
           />
         </div>
-      
-        <!-- File description textarea -->
-        <div class="form-group">
-          <textarea
-            placeholder="Snacks, Beverages, Oats..."
-            class="fileDescription"
-            name="fileDescription"
-            rows="4"
-            cols="50"
-            required
-            minlength="10"
-            maxlength="200"
-          ></textarea>
+        <div>
+          <input
+            type="checkbox"
+            id="editPermission"
+            name="editPermission"
+            value="editPermission"
+            disabled
+          />
+          <label for="editPermission">Edit permission</label>
         </div>
-      
-        <!-- Encryption and shareable options -->
-        <div class="encryptAndSharaeble">
-          <div>
-            <input
-              type="checkbox"
-              id="encrypt"
-              name="encrypt"
-              value="encrypt"
-            />
-            <label for="encrypt">Encrypt this file?</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="shareable"
-              name="shareable"
-              value="shareable"
-            />
-            <label for="shareable">Shareable file?</label>
-          </div>
-        </div>
-      
-        <!-- Password input and edit permission checkbox -->
-        <div class="passwordAndEditPermission">
-          <div>
-            <input 
-              placeholder="Passcode" 
-              type="password" 
-              id="password" 
-              name="password"
-              minlength="6"
-              maxlength="32"
-            />
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="editPermission"
-              name="editPermission"
-              value="editPermission"
-            />
-            <label for="editPermission">Edit permission</label>
-          </div>
-        </div>
-      
-        <!-- Submit button -->
-        <button type="submit">Create</button>
-      </form>
-    </div>
-  </body>
+      </div>
+      <button type="submit">Create</button>
+    </form>
+  </div>
+  <script src="javascripts/createHisaab.js"></script>
+</body>
 </html>

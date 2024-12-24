@@ -1,69 +1,75 @@
 <!-- Document Type Declaration -->
 <!DOCTYPE html>
-<!-- Root HTML element -->
 <html lang="en">
-<!-- Head section containing metadata -->
-<head>
-  <!-- Character encoding declaration -->
-  <meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/viewHisaab.css" />
+    <title>Hisaab</title>
+  </head>
 
-  <!-- Viewport settings for responsive design -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <body>
+    <div class="mainWrapper">
+      <!-- Include header partial -->
+      <%- include('header') %>
 
-  <!-- Link to external stylesheet -->
-  <link rel="stylesheet" href="stylesheets/viewHisaab.css">
-
-  <!-- Page title -->
-  <title>Hisaab</title>
-</head>
-
-<!-- Body section containing visible content -->
-
-<body>
-  <!-- Main wrapper for the entire page -->
-  <div class="mainWrapper">
-    <!-- Include header partial view -->
-    <%- include('header') %>
-
-      <!-- Upper section of the page -->
       <div class="upperSection">
-        <!-- Operation button wrapper -->
         <div class="operationButtonWrapper">
-          <!-- Text indicating if content is encrypted -->
-          <span>Encrypted</span>
-
-          <!-- SVG wrapper for sharing icon -->
-          <div class="isShareableSVGWrapper">
-            <img src="svgs/isSharable.svg" alt="..." />
-          </div>
+          <% if(hisaab.isEncrypt === true) { %>
+            <span>Encrypted</span>
+          <% } %>
+          
+          <% if(hisaab.isEncrypt === true) { %>
+            <div class="isShareableSVGWrapper">
+              <img src="/svgs/isSharable.svg" alt="..." />
+            </div>
+          <% } %>
 
           <!-- Delete button -->
-          <button class="deleteButton">Delete</button>
+          <form
+            action="/delete/<%= hisaab._id %>"
+            method="POST"
+            style="display: inline"
+          >
+            <button class="deleteButton">Delete</button>
+          </form>
 
           <!-- Edit button -->
-          <button class="editButton">Edit</button>
+          <button class="editButton" onclick="toggleEditMode()">Edit</button>
         </div>
 
-        <!-- Date wrapper -->
         <div class="dateWrapper">
-          <!-- Displayed date -->
-          <span>23-12-2024</span>
+          <span><%= hisaab.data.toLocaleDateString() %></span>
         </div>
       </div>
 
-      <!-- Hisaab content wrapper -->
       <div class="hisaabWrapper">
-        <!-- Title wrapper -->
         <div class="titleWrapper">
-          <!-- Displayed title -->
-          <span>This is the Title</span>
+          <span><%= hisaab.name %></span>
         </div>
 
-        <!-- Content wrapper -->
-        <div class="contentWrapper">This is content wrapper</span>
+        <div class="contentWrapper">
+          <!-- Textarea will be shown only when in edit mode -->
+          <form
+            id="editForm"
+            action="/update/<%= hisaab._id %>"
+            method="POST"
+            style="display: none"
+          >
+            <textarea name="content" id="contentTextarea">
+            <%= hisaab.content %></textarea
+            >
+            <button type="submit" class="saveButton">Save</button>
+          </form>
+
+          <!-- Content is shown by default in view mode -->
+          <div id="viewContent" style="display: block">
+            <%= hisaab.content %>
+          </div>
         </div>
       </div>
-  </div>
-</body>
+    </div>
 
+    <script src="/javascripts/viewHisaab.js"></script>
+  </body>
 </html>

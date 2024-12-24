@@ -141,6 +141,14 @@ body {
   font-size: 0.9rem; /* Adjust font size for better scaling */
 }
 
+.isAvailableOrNot {
+  background-color: #31a57b;
+  color: white;
+  padding: 5px;
+  border-radius: 0.5vw;
+  font-size: 0.9rem;
+}
+
 /* Date information container */
 .createdDate {
   display: flex;
@@ -167,6 +175,10 @@ body {
   text-decoration: none;
   color: #0086ff;
   font-weight: bold;
+}
+
+.no-hisaabs{
+  padding: 2vw;
 }
 
 /* Responsive Design */

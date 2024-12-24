@@ -47,10 +47,11 @@ body {
 /* Styles for delete button */
 .operationButtonWrapper .deleteButton {
   background-color: #cf3035;
-  padding: 0.8vw 3vw;
+  padding: 1.2vw 3vw;
   color: white;
   border: none;
   border-radius: 0.5vw;
+  cursor: pointer;
 }
 
 /* Styles for edit button */
@@ -60,6 +61,8 @@ body {
   color: black;
   border: none;
   border-radius: 0.5vw;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 /* Padding for date wrapper */
@@ -83,6 +86,55 @@ body {
   height: 20vw;
   padding: 1vw;
   overflow-y: scroll;
+}
+
+#editForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#editForm textarea {
+  width: 100%;
+  max-width: 600px;
+  height: 200px;
+  padding: 10px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  resize: none;
+}
+
+#editForm textarea:focus {
+  border-color: #4caf50;
+  background-color: #fff;
+  outline: none;
+}
+
+.saveButton {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: auto;
+}
+
+.saveButton:hover {
+  background-color: #45a049;
+}
+
+#viewContent {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  word-wrap: break-word;
 }
 
 /* Responsive styles for tablet (max-width: 1024px) */
@@ -136,5 +188,14 @@ body {
 
   .hisaabWrapper {
     padding: 1em;
+  }
+
+  #editForm textarea {
+    max-width: 100%;
+    height: 150px;
+  }
+
+  .saveButton {
+    width: 100%;
   }
 }
